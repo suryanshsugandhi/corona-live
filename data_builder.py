@@ -8,7 +8,7 @@ class DataBuilder():
 
     def __init__(self):
         filename = self.__today + '.csv'
-        self.data = pd.read_csv(filename)
+        self.data = pd.read_csv('./data/' + filename)
         self.__countries = self.data['Country/Region'].unique().tolist()
 
     def tracker_data(self):
