@@ -26,13 +26,14 @@ class DataBuilder():
         """
         df2 = self.data.groupby('Country/Region')
         val = df2.sum()
+        region = region.title()
         if(region in self.__countries):
             return val.loc[region].to_json(orient='index')
         else:
             # RAISE REGION NOT FOUND ERROR HERE !!!
             return "No data"
 
-    def total(self):
+    def total_data(self):
         """
             Return total number of confirmed, dead and recovered victims
             Args = None

@@ -3,20 +3,25 @@ from data_builder import DataBuilder
 
 app = Flask(__name__)
 
-@app.route('/')
-def hello():
-    return 'Hello World!'
-
+# ROUTES FOR DATA
 @app.route('/trackerdata', methods=['POST'])
 def tracker_data():
-    d = DataBuilder()
     return d.tracker_data()
 
 @app.route('/regiondata', methods=['POST'])
 def region_data():
-    d = DataBuilder()
     region = request.args.get('region')
     return d.region_data(region)
 
+@app.route('/totaldata', methods=['POST'])
+def total_data():
+    return d.total_data()
+
+# ROUTES FOR NEWS
+@app.route('/news', methods=['POST'])
+def method_name():
+    pass
+
 if __name__ == '__main__':
+    d = DataBuilder()
     app.run()
